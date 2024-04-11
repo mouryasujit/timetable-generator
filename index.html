@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClassSync</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courgette&family=Lexend:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,900;1,400&family=Patua+One&family=Righteous&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <div class="header">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#ff5500"
+          fill-opacity="0.1"
+          d="M0,256L34.3,256C68.6,256,137,256,206,240C274.3,224,343,192,411,149.3C480,107,549,53,617,48C685.7,43,754,85,823,133.3C891.4,181,960,235,1029,234.7C1097.1,235,1166,181,1234,165.3C1302.9,149,1371,171,1406,181.3L1440,192L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"
+        ></path>
+      </svg>
+    </div>
+
+    <nav class="navbar navbar-expand-xl">
+      <div class="container">
+        <a class="navbar-brand fs-2 fw-bold"
+          ><img src="images/classroom.gif" height="80" /><span
+            class="text-warning"
+            >Class</span
+          >Sync</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarDark"
+          aria-controls="navbarDark"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse show" id="navbarDark">
+          <ul
+            class="navbar-nav ms-auto mb-2 mb-xl-0 fs-5 ms-auto p-1 text-center"
+          >
+            <li class="nav-item me-5">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="">About</a>
+            </li>
+            <li class="nav-item me-5">
+              <a class="nav-link" href="login.html">Sign in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-12">
+          <h1 class="display-7">Welcome to <span>ClassSync</span></h1>
+          <p class="my-lg-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="40"
+              fill="currentColor"
+              class="bi bi-arrow-right-circle-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+              />
+            </svg>
+            Streamline Your Schedule with Ease <br />
+            Allows you to effortlessly create, edit, and visualize your class
+            schedules.With just a few clicks, you can input your course
+            information, including the class name, time, location, and
+            instructor.
+          </p>
+          <button class="button-74" role="button" onclick="handleclick()">
+            Start your schedule
+          </button>
+        </div>
+        <div class="col-lg-6">
+          <img src="images/main.png" class="img-fluid" />
+        </div>
+      </div>
+    </section>
+    <script>
+      const handleclick = () => {
+        console.log("ehll");
+        const val = localStorage.getItem("user");
+        if (!val) {
+          alert("please Login");
+          window.location.replace("http://localhost:5500/login.html");
+        } else {
+          window.location.replace("http://localhost:5500/dashboard.html");
+        }
+      };
+    </script>
+  </body>
+</html>

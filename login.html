@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .link {
+        color: #453302;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body class="loginpage">
+    <div class="login">
+      <form id="loginForm">
+        <h1>Log In</h1>
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+
+        <button type="button" class="button" onclick="login()">Login</button>
+        <h5>
+          Don't have an account yet?
+          <a href="signup.html" class="link">Make account</a>
+        </h5>
+      </form>
+    </div>
+
+    <script>
+      function login() {
+        // Get input values
+        var username = document.getElementById("username").value.trim();
+        var password = document.getElementById("password").value.trim();
+
+        // Validate input
+        if (!username || !password) {
+          alert("Please enter username and password");
+          return;
+        }
+
+        // Make AJAX request to login endpoint
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:3000/api/login", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              // Login successful
+              alert("Login successful!");
+              localStorage.setItem("user", JSON.stringify(username));
+              window.location.replace("http://localhost:5500/dashboard.html");
+            } else {
+              // Login failed
+              alert("Invalid username or password");
+            }
+          }
+        };
+
+        var userData = {
+          username: username,
+          password: password,
+        };
+
+        xhr.send(JSON.stringify(userData));
+      }
+    </script>
+  </body>
+</html>
